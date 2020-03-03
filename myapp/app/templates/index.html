@@ -25,25 +25,22 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" background="red" >
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='img2.png') }}" width=80, height=40></a>
+      <a class="navbar-brand" href="{{url_for('index')}}"><img src="{{ url_for('static',filename='img2.png') }}" width=80, height=40></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="{{url_for('index')}}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" class="about" href="{{ url_for('about') }}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
           </li>
         </ul>
       </div>
@@ -59,9 +56,15 @@
 
         <h1 class="my-4">Categories</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Food</a>
-          <a href="#" class="list-group-item">Restaurants</a>
-          <a href="#" class="list-group-item">Dessert</a>
+          <a href="{{url_for('restaurants')}}" class="list-group-item">Restaurants</a>
+          <a href="{{url_for('dessert')}}" class="list-group-item">Dessert</a>
+          <a href="{{url_for('salon')}}" class="list-group-item">Salon</a>
+          <a href="{{url_for('shopping')}}" class="list-group-item">Shopping</a>
+          <a href="{{url_for('clubs')}}" class="list-group-item">Clubs</a>
+          <a href="{{url_for('cafe')}}" class="list-group-item">Cafe</a>
+          <a href="{{url_for('events')}}" class="list-group-item">Events</a>
+          <a href="{{url_for('hotels')}}" class="list-group-item">Hotels</a>
+                    
         </div>
 
       </div>
@@ -74,17 +77,38 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="{{ ice[2].image_url }}" alt="First slide" style="width: 100%, height:300;">
+              <img class="d-block img-fluid" src="{{ ice[2].image_url }}" alt="First slide" style="width: 100%; height:400px;">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="{{ ice[3].image_url }}" alt="Second slide" style="width: 100%, height:300;">
+              <img class="d-block img-fluid" src="{{ ice[8].image_url }}" alt="Second slide" style="width: 100%; height:400px;">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="{{ ice[4].image_url }}" alt="Third slide" style="width: 100%, height:300;">
+              <img class="d-block img-fluid" src="{{ ice[13].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
             </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="{{ ice[19].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="{{ ice[24].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="{{ ice[30].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="{{ ice[36].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="{{ ice[42].image_url }}" alt="Third slide" style="width: 100%; height:400px;">
+            </div>
+
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -100,10 +124,10 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[0].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=0) }}"><img class="card-img-top" src="{{ ice[0].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[0].name }}</a>
+                  <a href="{{ url_for('disp1',key=0) }}">{{ ice[0].name }}</a>
                 </h4>
                 <h5>{{ ice[0].phone }}</h5>
                 <p class="card-text">{{ ice[0].location.address1,ice[0].location.zip_code}}</p>
@@ -116,13 +140,13 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[8].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=2) }}"><img class="card-img-top" src="{{ ice[2].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[5].name }}</a>
+                  <a href="{{ url_for('disp1',key=2) }}">{{ ice[2].name }}</a>
                 </h4>
-                <h5>{{ ice[5].phone }}</h5>
-                <p class="card-text">{{ ice[5].location.address1,ice[5].location.zip_code}}</p>
+                <h5>{{ ice[2].phone }}</h5>
+                <p class="card-text">{{ ice[2].location.address1,ice[2].location.zip_code}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -132,13 +156,13 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[10].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=8) }}"><img class="card-img-top" src="{{ ice[8].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[10].name }}</a>
+                  <a href="{{ url_for('disp1',key=8) }}">{{ ice[8].name }}</a>
                 </h4>
-                <h5>{{ ice[10].phone }}</h5>
-                <p class="card-text">{{ ice[10].location.address1,ice[10].location.zip_code}}</p>
+                <h5>{{ ice[8].phone }}</h5>
+                <p class="card-text">{{ ice[8].location.address1,ice[8].location.zip_code}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -148,13 +172,13 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[1].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=17) }}"><img class="card-img-top" src="{{ ice[17].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[1].name }}</a>
+                  <a href="{{ url_for('disp1',key=17) }}">{{ ice[17].name }}</a>
                 </h4>
-                <h5>{{ ice[1].phone }}</h5>
-                <p class="card-text">{{ ice[1].location.address1,ice[1].location.zip_code}}</p>
+                <h5>{{ ice[17].phone }}</h5>
+                <p class="card-text">{{ ice[17].location.address1,ice[17].location.zip_code}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -164,13 +188,13 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[9].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=21) }}"><img class="card-img-top" src="{{ ice[21].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[6].name }}</a>
+                  <a href="{{ url_for('disp1',key=21) }}">{{ ice[21].name }}</a>
                 </h4>
-                <h5>{{ ice[6].phone }}</h5>
-                <p class="card-text">{{ ice[6].location.address1,ice[6].location.zip_code}}</p>
+                <h5>{{ ice[21].phone }}</h5>
+                <p class="card-text">{{ ice[21].location.address1,ice[21].location.zip_code}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -180,13 +204,61 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="{{ ice[11].image_url }}" alt=""></a>
+              <a href="{{ url_for('disp1',key=27) }}"><img class="card-img-top" src="{{ ice[27].image_url }}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ ice[11].name }}</a>
+                  <a href="{{ url_for('disp1',key=27) }}">{{ ice[27].name }}</a>
                 </h4>
-                <h5>{{ ice[11].phone }}</h5>
-                <p class="card-text">{{ ice[11].location.address1,ice[11].location.zip_code}}</p>
+                <h5>{{ ice[27].phone }}</h5>
+                <p class="card-text">{{ ice[27].location.address1,ice[27].location.zip_code}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="{{ url_for('disp1',key=31) }}"><img class="card-img-top" src="{{ ice[31].image_url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{{ url_for('disp1',key=31) }}">{{ ice[31].name }}</a>
+                </h4>
+                <h5>{{ ice[31].phone }}</h5>
+                <p class="card-text">{{ ice[31].location.address1,ice[31].location.zip_code}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="{{ url_for('disp1',key=38) }}"><img class="card-img-top" src="{{ ice[38].image_url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{{ url_for('disp1',key=38) }}">{{ ice[38].name }}</a>
+                </h4>
+                <h5>{{ ice[38].phone }}</h5>
+                <p class="card-text">{{ ice[38].location.address1,ice[38].location.zip_code}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="{{ url_for('disp1',key=42) }}"><img class="card-img-top" src="{{ ice[42].image_url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="{{ url_for('disp1',key=42) }}">{{ ice[42].name }}</a>
+                </h4>
+                <h5>{{ ice[42].phone }}</h5>
+                <p class="card-text">{{ ice[42].location.address1,ice[42].location.zip_code}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

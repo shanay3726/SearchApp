@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Homepage - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/shop-homepage.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/vendor/bootstrap/css/bootstrap.min.css') }}">
+
+
+
+  <!-- Custom styles for this template -->
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" background="red" >
+    <div class="container">
+      <a class="navbar-brand" href="{{url_for('index')}}"><img src="{{ url_for('static',filename='img2.png') }}" width=80, height=40></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('index')}}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="about" href="{{ url_for('about') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">Categories</h1>
+        <div class="list-group">
+          <a href="{{url_for('restaurants')}}" class="list-group-item">Restaurants</a>
+          <a href="{{url_for('dessert')}}" class="list-group-item">Dessert</a>
+          <a href="{{url_for('salon')}}" class="list-group-item">Salon</a>
+          <a href="{{url_for('shopping')}}" class="list-group-item">Shopping</a>
+          <a href="{{url_for('clubs')}}" class="list-group-item">Clubs</a>
+          <a href="{{url_for('cafe')}}" class="list-group-item">Cafe</a>
+          <a href="{{url_for('events')}}" class="list-group-item">Events</a>
+          <a href="{{url_for('hotels')}}" class="list-group-item">Hotels</a>
+                
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        
+        <div style="padding-top: 20px">
+
+            
+              <a href="#"><img class="d-block img-fluid" src="{{ image_url }}" width="500" height="500" alt=""></a>
+              <br>
+                <h4>
+                  <a href="#">{{name }}</a>
+                </h4>
+                <p>{{address}}</p>
+                
+                <p>Phone : {{phone}} </p>
+                
+                <H5>Rating : {{rating}}</H5>
+                <br>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+              <br>
+            
+          
+
+          
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Yelp 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+</body>
+
+</html>

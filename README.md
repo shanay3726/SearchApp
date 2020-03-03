@@ -10,6 +10,6 @@ The web app uses Python and FLASK for back-end scripting.
 - *JavaScript*
 
 ## Screenshots
-![Home Page](https://imgur.com/BMJPIre)
-![Display](https://imgur.com/CQfG0eK)
-![About](https://imgur.com/9ggt71g)
+![Home Page](https://i.imgur.com/BMJPIre.png)
+![Display](https://i.imgur.com/CQfG0eK.png)
+![About](https://i.imgur.com/9ggt71g.png)
